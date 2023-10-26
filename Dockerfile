@@ -4,4 +4,4 @@ ENV MYSQL_ROOT_PASSWORD=12345678
 
 ADD script.sql /docker-entrypoint-initdb.d/
 
-EXPOSE 3306 3306
+EXPOSE 3306 33060
