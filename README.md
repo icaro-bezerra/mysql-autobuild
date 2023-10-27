@@ -13,11 +13,11 @@ If you want to customize the Docker image's name, you can do so by modifying the
 
 ```yaml
 tags: ${{ secrets.DOCKERHUB_USERNAME }}/your-chosen-name:latest
-
+```
 ## Usage
 Whenever you update your script.sql, this action will automatically build and push the image to DockerHub. To run the MySQL container, simply execute the following command in your terminal:
 
-bash
-Copy code
+```bash
 docker run -p 3306:3306 your-username/your-chosen-name:latest
+```
 Enjoy the simplicity and automation of your MySQL container management!
