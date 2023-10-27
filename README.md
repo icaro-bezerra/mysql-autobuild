@@ -1,15 +1,23 @@
 # MySQL AutoBuild
 
-Este repositório contém uma ação que automatiza o processo de construção de um contêiner quando o arquivo `script.sql` é atualizado.
+This repository contains an action that automates the process of building a container when the `script.sql` file is updated.
 
-## Pré-requisitos
-Antes de usar esta ação, você precisa adicionar suas credenciais do Docker Hub como segredos em seu repositório:
+## Prerequisites
+Before using this action, you need to add your Docker Hub credentials as secrets in your repository:
 
-- `DOCKERHUB_TOKEN` (Token gerado no DockerHub)
-- `DOCKERHUB_USERNAME` (Seu nome de usuário do DockerHub)
+- `DOCKERHUB_TOKEN` (Token generated on DockerHub)
+- `DOCKERHUB_USERNAME` (Your DockerHub username)
 
-## Personalizando o Nome da Imagem
-Se você deseja personalizar o nome da imagem Docker, pode fazer isso modificando a última linha no arquivo `mysql-autobuild/.github/workflows/docker-image.yml`. Substitua-o da seguinte forma:
+## Customizing the Image Name
+If you want to customize the Docker image's name, you can do so by modifying the last line in the `mysql-autobuild/.github/workflows/docker-image.yml` file. Replace it as follows:
 
 ```yaml
-tags: ${{ secrets.DOCKERHUB_USERNAME }}/seu-nome-escolhido:latest
+tags: ${{ secrets.DOCKERHUB_USERNAME }}/your-chosen-name:latest
+
+## Usage
+Whenever you update your script.sql, this action will automatically build and push the image to DockerHub. To run the MySQL container, simply execute the following command in your terminal:
+
+bash
+Copy code
+docker run -p 3306:3306 your-username/your-chosen-name:latest
+Enjoy the simplicity and automation of your MySQL container management!
